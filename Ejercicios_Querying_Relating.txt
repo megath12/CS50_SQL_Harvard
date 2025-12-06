@@ -141,9 +141,20 @@ WHERE first_name like "s%" AND first_name like "%s" AND length(first_name)>=6
 
 
 
+
+
+
 SELECT *
 FROM patients
 JOIN province_names on patients.province_id = province_names.province_id
 
+
+-- Show patient_id, first_name, last_name 
+-- from patients whos diagnosis is 'Dementia'.
+-- Primary diagnosis is stored in the admissions table.
+select patients.patient_id, first_name, last_name
+from patients
+JOIN admissions ON patients.patient_id=admissions.patient_id
+WHERE diagnosis="Dementia"
 
 
